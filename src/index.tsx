@@ -14,7 +14,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers, composeWithDevTools())}>
+  <Provider store={createStoreWithMiddleware(reducers)}>
      <React.StrictMode>
       <App />
     </React.StrictMode>
