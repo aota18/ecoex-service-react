@@ -2,7 +2,7 @@ pipeline {
     agent any
      //Cron Syntax
      // drive this pipeline every 3 minutes
-    triggers {
+    triggers { 
         pollSCM('*/2 * * * *')
     }
     // Credentials file
@@ -37,6 +37,24 @@ pipeline {
                 }
                 cleanup {
                     echo "after all other post conditipon"
+                }
+            }
+        }
+        stage('Build Frontend') {
+            agent {
+                docker {
+                    image 'node:14.15.2-alpine'
+                }
+            }
+            steps {
+                echo 'Build Frontend'
+                sh 'npm install'
+                sh 'npm run build'
+            }
+            post {
+                failure {
+                    //Error terminates all
+                    error "This pipeline stops here..."
                 }
             }
         }
