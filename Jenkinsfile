@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo "Let's start Long Journey ! :두_손을_들고_있는_사람: "
                 echo "Clonning Repository..."
-                git url: "https://github.com/Ecoexlab-Dev/ecoex-service-react.git",
+                git url: "https://github.com/aota18/ecoex-service-react.git",
                     branch: 'master',
                     credentialsId: 'ujs8533'
             }
